@@ -5,7 +5,13 @@ readme = "README.md"
 license = { file = "LICENSE" }
 classifiers = ["License :: OSI Approved :: MIT License"]
 dynamic = ["version", "description"]
-dependencies = ["fastapi~=0.109", "redis-om~=0.2", "python-dotenv~=1.0", "uvicorn~=0.26"]
+dependencies = [
+  "fastapi~=0.109",
+  "redis-om~=0.2",
+  "python-dotenv~=1.0",
+  "uvicorn~=0.26",
+  "orjson~=3.9",
+]
 
 
 [project.urls]
