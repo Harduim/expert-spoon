@@ -10,10 +10,11 @@ def api() -> FastAPI:
 
 
 def api_factory(title: str, allow_origins: list[str]) -> FastAPI:
-    from .routers import public
+    from .routers import public, users
 
     app = FastAPI(title=title)
     app.include_router(router=public.router)
+    app.include_router(router=users.router)
 
     app.add_middleware(
         CORSMiddleware,
