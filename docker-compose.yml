@@ -1,0 +1,23 @@
+version: "3.9"
+name: "expert_spoon"
+services:
+  spoon_backend:
+    container_name: spoon_backend
+    build:
+      context: .
+    restart: "no"
+    depends_on:
+      - spoon_db
+    environment:
+      - SERVER_PORT=$SERVER_PORT
+      - SERVER_HOST=$SERVER_HOST
+    volumes:
+      - ${DEV_FOLDER}:/opt/spoon
+
+  spoon_db:
+    container_name: spoon_db
+    image: "redis/redis-stack:7.2.0-v7"
+    restart: "no"
+    ports:
+      - 6379:6379
+      - 8001:8001
