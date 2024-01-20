@@ -7,13 +7,5 @@ router = APIRouter(prefix="/users", tags=["Users"])
 
 
 @router.get("/", response_class=ORJSONResponse)
-async def get_all_users() -> list[User]:
-    """List of all users
-
-    Returns
-    -------
-    list[User]
-    """
-
-    # Bizarre, but I could figure out another way to do this
+async def get_all() -> list[User]:
     return UserController.get_all()
