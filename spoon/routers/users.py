@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from ..models.views.user import User
+from ..controllers.user import UserController
 
 router = APIRouter(prefix="/users", tags=["Users"])
 
@@ -14,4 +15,4 @@ async def get_all_users() -> list[User]:
     """
 
     # Bizarre, but I could figure out another way to do this
-    return list(map(User.get, User.all_pks()))
+    return UserController.get_all()
